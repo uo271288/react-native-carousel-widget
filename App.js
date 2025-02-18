@@ -1,8 +1,8 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import CarouselComponent from "./carousel.component";
-import DetailPage from "./detail.component";
+import CarouselComponent from "./components/carousel.component";
+import DetailPage from "./components/detail.component";
 import { View, Text, Dimensions, StyleSheet } from "react-native";
 
 const Stack = createStackNavigator();

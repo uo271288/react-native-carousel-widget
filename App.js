@@ -12,15 +12,34 @@ const ITEM_WIDTH = width * 0.25;
 const ITEM_HEIGHT = 300;
 
 const menuItems = [
-  { title: "Representation 1", image: "https://picsum.photos/id/237/200" },
-  { title: "Representation 2", image: "https://picsum.photos/id/42/200" },
-  { title: "Representation 3", image: "https://picsum.photos/id/325/200" },
-  { title: "Representation 4", image: "https://picsum.photos/id/3/200" },
+  {
+    title: "Animales",
+    image: "https://api.arasaac.org/v1/pictograms/6901",
+  },
+  {
+    title: "Familia",
+    image: "https://api.arasaac.org/v1/pictograms/11731",
+  },
+  {
+    title: "Estaciones",
+    image: "https://api.arasaac.org/v1/pictograms/5464",
+  },
+  {
+    title: "Juegos",
+    image: "https://api.arasaac.org/v1/pictograms/36405",
+  },
+  /* {
+    title: "Frutas",
+    image: "https://api.arasaac.org/v1/pictograms/28339",
+  }, */
 ];
 
 const carouselData = {
   0: [
-    { title: "Item 1A" },
+    {
+      title: "Item 1A",
+      // image: "https://api.arasaac.org/v1/pictograms/25187",
+    },
     { title: "Item 2A" },
     { title: "Item 3A" },
     { title: "Item 4A" },
@@ -49,6 +68,11 @@ const carouselData = {
 const renderCard = (item) => (
   <View style={styles.card}>
     <Text style={styles.cardText}>{item.title}</Text>
+    {/* <Image
+      source={{ uri: item.image }}
+      style={styles.menuImage}
+      resizeMode="contain"
+    /> */}
   </View>
 );
 
@@ -131,12 +155,12 @@ const styles = StyleSheet.create({
     marginVertical: 10,
   },
   menuImage: {
-    width: 75,
-    height: 75,
+    width: 100,
+    height: 100,
   },
   menuText: {
     marginTop: 5,
-    fontSize: 14,
+    fontSize: 20,
     textAlign: "center",
   },
 });

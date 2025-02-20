@@ -1,15 +1,15 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import CarouselComponent from "./components/carousel.component";
 import DetailPage from "./components/detail.component";
-import { View, Text, Dimensions, StyleSheet } from "react-native";
+import { View, Text, Dimensions, StyleSheet, Image, Alert } from "react-native";
+import CarouselComponent from "child-cozy-menu";
 
 const Stack = createStackNavigator();
 
 const { width } = Dimensions.get("window");
 const ITEM_WIDTH = width * 0.25;
-const ITEM_HEIGHT = 150;
+const ITEM_HEIGHT = 300;
 
 const menuItems = [
   { title: "Representation 1", image: "https://picsum.photos/id/237/200" },
@@ -52,13 +52,32 @@ const renderCard = (item) => (
   </View>
 );
 
+const renderFilters = (item) => (
+  <View style={styles.menuItem}>
+    <Image
+      source={{ uri: item.image }}
+      style={styles.menuImage}
+      resizeMode="contain"
+    />
+    <Text style={styles.menuText}>{item.title}</Text>
+  </View>
+);
+
 const handleRepresentationClick = (index) => {
   console.log("Representation clicked:", index);
 };
 
 const handleCardClick = (item, navigation) => {
   console.log("Card clicked:", item);
-  navigation.navigate("DetailPage", { item });
+  //navigation.navigate("DetailPage", { item });
+  Alert.alert("Alert Title", "My Alert Msg", [
+    {
+      text: "Cancel",
+      onPress: () => console.log("Cancel Pressed"),
+      style: "cancel",
+    },
+    { text: "OK", onPress: () => console.log("OK Pressed") },
+  ]);
 };
 
 const App = () => {
@@ -72,6 +91,7 @@ const App = () => {
               menuItems={menuItems}
               carouselData={carouselData}
               renderCarouselItem={renderCard}
+              renderMenuItems={renderFilters}
               onMenuItemClick={handleRepresentationClick}
               onCarouselItemClick={(item) =>
                 handleCardClick(item, props.navigation)
@@ -95,7 +115,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginHorizontal: 10,
     shadowColor: "#000",
-    shadowOpacity: 0.2,
+    shadowOpacity: 0.5,
     shadowOffset: { width: 0, height: 4 },
     shadowRadius: 5,
     elevation: 5,
@@ -104,6 +124,20 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 20,
     fontWeight: "bold",
+  },
+  menuItem: {
+    alignItems: "center",
+    marginHorizontal: 10,
+    marginVertical: 10,
+  },
+  menuImage: {
+    width: 75,
+    height: 75,
+  },
+  menuText: {
+    marginTop: 5,
+    fontSize: 14,
+    textAlign: "center",
   },
 });
 

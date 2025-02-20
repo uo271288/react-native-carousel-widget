@@ -18,7 +18,8 @@
     "react-native": "0.76.7",
     "react-native-gesture-handler": "~2.20.2",
     "react-native-reanimated": "~3.16.1",
-    "react-native-reanimated-carousel": "^4.0.2"
+    "react-native-reanimated-carousel": "^4.0.2",
+    "expo-updates": "~0.26.18"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
